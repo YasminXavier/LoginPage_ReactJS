@@ -1,0 +1,18 @@
+.App{
+    width: 50%;
+    margin: 8em auto; /* auto = centralize the element*/
+    background-color: #373737;
+    border-radius: 8px;
+    color: azure ;
+}
+
+.todo-header{
+    padding: 1.5em;
+    border-bottom: 1px solid #555353;
+    text-align: center;
+    
+}
+
+.todo-header h1{
+    margin: 0; /* null the margin only in this element defined before */
+}
