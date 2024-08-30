@@ -1,18 +1,121 @@
 .App{
     width: 50%;
-    margin: 8em auto; /* auto = centralize the element*/
+    margin: 12em auto; /* auto = centralize the element*/
     background-color: #373737;
     border-radius: 8px;
     color: azure ;
+    min-width: 400px;
 }
 
 .todo-header{
     padding: 1.5em;
-    border-bottom: 1px solid #555353;
     text-align: center;
     
 }
 
 .todo-header h1{
     margin: 0; /* null the margin only in this element defined before */
+}
+
+.form-todo{
+    padding: 1em;
+    margin: 0 1.5em;
+    border-bottom: 1px solid #555353;
+    border-top: 1px solid #555353;
+}
+
+.form-todo h2, 
+.list-todo h3{
+    text-align: center;
+    margin-top: 0px;
+}
+
+.form-control{
+    display: flex;
+    flex-direction: column;
+    gap: 0.3em;
+    margin-bottom: 1em;
+}
+
+.form-control label{
+    font-weight: bold;
+    font-size: 0.7em;
+    margin-bottom: 0.5em;
+}
+
+.form-control input{
+    border: 1px solid #222;
+    border-radius: 2px;
+    background-color: #2c3035;
+    padding: 0.5em;
+    color: azure;
+    width: 80%;
+}
+
+input[type="submit"]{
+    border: 1px solid #ab73ff;
+    border-radius: 5px;
+    background-color: #9a5afa;
+    padding: 0.6em;
+    color: azure;
+    width: 100px;
+    cursor: pointer; /* mãozinha de clicavel */
+}
+
+.list-todo{
+    padding: 0 1em 2em /* topo laterais baixo*/;
+    margin: 1em 2em; /* cima/baixo laterais*/
+}
+
+.list-todo h2{
+    margin-bottom: 0;
+}
+
+.list-todo p{
+    text-align: center;
+}
+
+.todo{
+    border-bottom: 1px solid #555353;
+    padding: 1em 0;
+    display: flex;
+    flex-direction: row;
+    align-items:first baseline;
+    gap: 2em;
+}
+
+.todo h4{
+    margin-bottom: 0.5em;
+    width: 100%;
+    min-width: 80px;
+}
+
+.todo-done{
+    text-decoration: line-through;
+    color: #9a5afa;
+}
+
+.todo p{
+    text-align: left;
+    font-style: italic;
+    font-size: 0.9em;
+    margin-bottom: 1.5em;
+    width: 100%;
+    min-width: 80px;
+}
+
+.todo svg{
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-right: 1em;
+    transition: 0.5s;
+}
+
+.todo svg:hover{
+    color: #ab73ff;
+}
+
+.action{
+    display: flex;
+    flex-direction: row;
 }
