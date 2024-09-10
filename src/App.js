@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import { BsTrash, BsBookmarkCheck, BsBookmarkCheckFill } from 'react-icons/bs';
 
-const API = "http://localhost:3000";
+const API = "http://localhost:5001";
 
 function App() {
 
@@ -10,12 +10,12 @@ function App() {
     const [title, setTitle] = useState('')
     const [time, setTime] = useState('')
     const [todos, setTodo] = useState([])
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(true)
 
   /* load todos on page */
   useEffect(() => {
     const loadData = async () => {
-      setLoading(true) /* carregando os dados */
+      // setLoading(true) /* carregando os dados */
 
       const res = await fetch(API + "/todos")
       .then((res) => res.json())
@@ -64,13 +64,13 @@ function App() {
         method: "DELETE",
       });
 
-      setTodo((prevState) => prevState.filter((todos) => todos.id)!== id)
-    };
-    
+      // setTodo((prevState) => prevState.filter((todos) => todos.id)!== id)
 
-    if(loading){
-      <p> Carregando... </p>
-    }
+      const newTask = todos.filter((todo) => todo.id !== id)
+      setTodo(newTask)
+      // console.log({todos})
+    };
+  
 
   return (
     <div className="App">
@@ -103,9 +103,11 @@ function App() {
       </div>
       <div className='list-todo'>
         <h3> Lista de tarefas </h3>
-        {todos.length === 0 && <p> Não há tarefas. </p>
-        /* If todos return no items, then have the paraghaph */}
-        {todos.map((todo) => (
+        <p /*se existirem tarefas no json, vai aparecer carregando e depois sumir */>
+         {loading  && "Carregando..."} </p>
+        <p /*  se nao existirem tarefas, irra carregar essa mensagem*/>
+         {!loading && todos.length === 0 && "Não há tarefas" } </p>
+        {todos?.map((todo) => (
           <div className='todo' key={todo.id}>
             <h4 className={todo.done ? "todo-done" : ""}> {todo.title} </h4>
             <p> Duração: {todo.time}</p>
